@@ -25,7 +25,7 @@ const requestHandler = (req, res) => {
     //event listener
     req.on("end", () => {
       const parsedData = Buffer.concat(body).toString();
-      const message = parsedData.split("=")[1];
+      const message = parsedData.split("=")[0];
       fs.writeFile("messages.txt", message, (err) => {
     
       });
