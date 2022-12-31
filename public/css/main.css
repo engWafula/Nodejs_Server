@@ -161,6 +161,14 @@ form {
   margin: 0;
 }
 
+.image{
+  height: 20rem;
+}
+
+.image img{
+  height: 100%;
+}
+
 .card__image {
   width: 100%;
 }
