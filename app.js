@@ -1,5 +1,4 @@
 const path = require('path');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require("./utils/database")
@@ -10,7 +9,7 @@ const Cart = require("./models/cart")
 const CartItem = require("./models/cart-items")
 const Order = require('./models/order');
 const OrderItem = require('./models/order-item');
-
+require('dotenv').config()
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -54,7 +53,7 @@ sequelize.sync().then(res=>{
 }).then(user=>{
   return  user.createCart()
 }).then(cart=>{
-    app.listen(3000)
+    app.listen(process.env.PORT || 3000)
 
 }).catch(err=>{
     console.log(err)
