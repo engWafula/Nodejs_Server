@@ -15,16 +15,14 @@ exports.getAddProduct = (req, res, next) => {
   });
 };
 
-exports.deleteEditProduct = (req,res,next) =>{
-  const prodId = req.body.productId
+exports.deleteProduct = (req,res,next) =>{
+  const prodId = req.params.productId
   Product.deleteOne({ _id: prodId, userId: req.user._id })
   .then(result=>{
     console.log("deleted successfully")
-    res.redirect('/admin/products');
+    res.status(200).json({message:"Deleted Successfully"})
   }).catch(err=>{
-    const error = new Error(err)
-    error.httpStatusCode = 500
-    return next(error)
+       res.status(500).json({message:"Deleting Failed"})
  })
 
 }
@@ -113,7 +111,6 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log(errors.array());

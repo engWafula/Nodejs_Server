@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 // const sequelize = require("./utils/database")
 const errorController = require("./controllers/error");
 // const Product = require("./models/product")
+const multer = require("multer")
 const User = require("./models/user");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");

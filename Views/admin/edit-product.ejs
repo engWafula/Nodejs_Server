@@ -21,7 +21,7 @@
                     value="<% if (editing || hasError) { %><%= product.title %><% } %>">
             </div>
             <div class="form-control">
-                <label for="imageUrl">Image URL</label>
+                <label for="imageUrl">Image </label>
                 <input 
                     class="<%= validationErrors.find(e => e.param === 'imageUrl') ? 'invalid' : '' %>"
                     type="text" 
